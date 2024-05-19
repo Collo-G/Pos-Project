@@ -1,0 +1,37 @@
+body{
+    background-color: cadetblue;
+    text-align: center;
+    padding: 100PX;
+}
+.login{
+   
+    display: flex;
+    justify-content: center ;
+   
+    margin-left: 50%;
+    margin-right: 50%;
+}
+form{
+    background-color: rgb(255, 255, 255);
+    padding: 150px;
+    border-radius: 10PX;
+    
+}
+label{
+    font-size: larger;
+    font-family:Arial, Helvetica, sans-serif;
+}
+input{
+    width: 80%;
+    padding: 5px;
+    border-radius: 2px;
+    border: 1px solid grey;
+}
+form > button {
+    background-color: rgb(62, 224, 167);
+    padding: 10px 50px;
+    font-size: large;
+    border-radius: 3px;
+    color: aliceblue;
+    border: none;
+}
