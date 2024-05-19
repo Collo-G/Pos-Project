@@ -4,15 +4,25 @@
     background-color: rgb(255, 255, 255);
 }
 .sidebar{
-    background-color: rgb(174, 174, 174);
+    background-color: rgba(88, 88, 88, 0.256);
     height: 100vh;
     width: 50vh;
 }
 .addproduct > button {
-    padding: 8px 40px;
+    padding: 10px 40px;
     border-radius: 2px;
     border: none;
+    background-color: rgb(30, 166, 190);
+    color: aliceblue;
 }
 .logout{
     padding-top: 100px;
+   
+}
+.logout > button {
+    background-color: brown;
+    color: white;
+    padding: 8px 40px;
+    border: none;
+
 }

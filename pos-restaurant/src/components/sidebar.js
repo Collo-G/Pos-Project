@@ -15,7 +15,7 @@ const Sidebar = () => {
         <div className="addproduct">
             <button>Add Product</button><br></br><br></br><br></br>
             <button>Delete Products</button><br></br><br></br><br></br>
-            <button>View Products</button><br></br><br></br><br></br>
+            <button>View Products</button><br></br><br></br>
             <div className="logout">
                 <button>Log Out</button>
             </div>
