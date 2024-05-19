@@ -1,9 +1,10 @@
-
+import { useContext } from "react";
 
 const PosPage = () => {
+
     return(
         <h2>
-            Hello
+            Products Available
         </h2>
     )
 }

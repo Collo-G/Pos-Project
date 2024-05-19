@@ -1,31 +1,27 @@
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { LoginContex } from './components/logincontex';
 import './App.css';
 import Sidebar from './components/sidebar';
-import { useContext } from 'react';
+import Combined from './components/combinedcomponents';
 import Loginpage from './components/loginpage';
-import { useState } from 'react';
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
-function App() {
 
-  const [Username, setUsername] = useState("")
+function App() {
+  const [username, setUsername] = useState("");
+
   return (
     <div className="App">
-
-
-    <LoginContex.Provider value={{Username, setUsername}}>
-    <Loginpage/>
-
- <Router/>
-    <Routes>
-      <Route path='/PosPage' element={<Sidebar/>}></Route>
-    </Routes>
-  <Router/>
-
-
-    </LoginContex.Provider>
-
-
+      <LoginContex.Provider value={{ username, setUsername}}>
+        <Router>
+          <Routes>
       
+              <Route path='/PosPage' element={<Combined/>} />
+            
+              <Route path='/' element={<Loginpage />} />
+            
+          </Routes>
+        </Router>
+      </LoginContex.Provider>
     </div>
   );
 }
