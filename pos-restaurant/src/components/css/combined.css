@@ -1,7 +1,8 @@
 .main{
     display: flex;
-    gap: 500px;
+    gap: 200px;
     background-color: rgb(255, 255, 255);
+    
 }
 .sidebar{
     background-color: rgba(88, 88, 88, 0.256);

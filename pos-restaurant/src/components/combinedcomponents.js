@@ -8,6 +8,10 @@ const Combined = () => {
             <div className="sidebar">
                 <Sidebar/>
             </div>
+            <div className="cart">
+            <h1>CART</h1>
+            <p>No items Yet!</p>
+            </div>
             <div className="landing">
                 <PosPage/>
             </div>
