@@ -31,21 +31,20 @@ const getAllProduct =  async (req, res, next) => {
     }
 };
 const deleteProduct = async (req, res, next) => {
-    try {
-      const { id } = req.params; // Assuming the ID is sent in the request parameters
-  
-      const result = await product.destroy({
-        where: { id }, // Adjust the field name according to your primary key
+  try {
+      const productId = req.params.id;  // Extract ID from the URL parameters
+      const deletedProduct = await product.destroy({
+          where: {Product_ID: productId }
       });
-  
-      if (result) {
-        res.status(200).json({ message: "Product deleted successfully" });
+
+      if (deletedProduct) {
+          res.status(200).send(`Product with ID ${productId} deleted successfully.`);
       } else {
-        res.status(404).json({ message: "Product not found" });
+          res.status(404).send(`Product with ID ${productId} not found.`);
       }
-    } catch (error) {
+  } catch (error) {
       console.error(error);
       res.status(500).send("Internal server error.");
-    }
-  };
+  }
+};
   module.exports = { addProduct, getAllProduct, deleteProduct };

@@ -6,21 +6,23 @@ import Sidebar from './components/sidebar';
 import Combined from './components/combinedcomponents';
 import Loginpage from './components/loginpage';
 import AddProduct from './components/addProduct';
+import DeleteProduct from './components/deleteProduct';
+
 function App() {
   const [username, setUsername] = useState("");
 
   return (
     <div className="App">
-      <LoginContex.Provider value={{ username, setUsername}}>
+      <LoginContex.Provider value={{ username, setUsername }}>
         <Router>
           <Routes>
-      
-              <Route path='/PosPage' element={<Combined/>} />
+            <Route path='/PosPage' element={<Combined />} />
 
-              <Route path='/addProduct' element={<AddProduct/>}></Route>
-            
-              <Route path='/' element={<Loginpage />} />
-            
+            <Route path='/addProduct' element={<AddProduct />} />
+
+            <Route path='/deleteProduct' element={<DeleteProduct />} />
+
+            <Route path='/' element={<Loginpage />} />
           </Routes>
         </Router>
       </LoginContex.Provider>

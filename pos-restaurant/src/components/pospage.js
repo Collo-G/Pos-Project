@@ -1,46 +1,74 @@
-import { useContext, useState } from "react";
-import { useEffect } from "react";
-import axios from 'axios'
-const PosPage = () => {
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import './css/pos.css'
 
+const PosPage = () => {
     const [products, setProducts] = useState([]);
+    const [cartItems, setCartItems] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
         const fetchData = async () => {
-          try {
-            const response = await axios.get(
-              "http://localhost:4000/api/product/getProduct"
-            );
-            
-
-            setProducts(response.data)
-            console.log(products)
-    
-            
-          } catch (error) {
-            console.error("Error fetching data:", error);
-            
-          }
+            try {
+                const response = await axios.get(
+                    "http://localhost:4000/api/product/getProduct"
+                );
+                setProducts(response.data);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
         };
-    
+
         fetchData();
-      }, []);
-    
+    }, []);
 
-    return(
+    const addToCart = (product) => {
+        const newCartItems = [...cartItems, product];
+        const newTotalPrice = totalPrice + product.Product_Price;
+        setCartItems(newCartItems);
+        setTotalPrice(newTotalPrice);
+    };
 
-        <div>
-        <h2>Products Available</h2>
-        <div style={{ display: "flex", color: "black",   flexWrap: "wrap" }}>
-          {products.map((product) => (
-            <div key={product.Product_ID} style={{ flexBasis: "25%", padding: "10px", border: "1px solid black", justifyContent: "space-evently" }}>
-                <h6 style={{ color: "black", fontSize: "20px" }}>{product.Product_Name}</h6>
-                <p style={{ color: "black" }}>KSH {product.Product_Price}</p>
+    return (
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+            <h2>Products Available</h2>
+            <div style={{ display: "flex", flexWrap: "wrap" }}>
+                {products.map((product) => (
+                    <div
+                        onClick={() => addToCart(product)}
+                        className="btn"
+                        key={product.Product_ID}
+                        style={{
+                            flexBasis: "25%",
+                            padding: "10px",
+                            border: "1px solid black",
+                            justifyContent: "space-evently",
+                            margin: "5px",
+                            textAlign: "center",
+                        }}
+                    >
+                        <h6 style={{ color: "black", fontSize: "20px" }}>
+                            {product.Product_Name}
+                        </h6>
+                        <p style={{ color: "black" }}>
+                            KSH {product.Product_Price}
+                        </p>
+                    </div>
+                ))}
             </div>
-          ))}
+
+            <div style={{ textAlign: "center", marginTop: "20px" }}>
+                <h2>Cart</h2>
+                {cartItems.map((item, index) => (
+                    <div key={index}>
+                        <p>{item.Product_Name}</p>
+                        <p>KSH {item.Product_Price}</p>
+                    </div>
+                ))}
+                <p>Total Price: KSH {totalPrice}</p>
+            </div>
         </div>
-      </div>
-    
-    )
-}
+    );
+};
+
 export default PosPage;
