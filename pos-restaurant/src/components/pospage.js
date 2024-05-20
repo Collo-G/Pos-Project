@@ -26,7 +26,7 @@ const PosPage = () => {
         const newCartItems = [...cartItems, product];
         const newTotalPrice = totalPrice + product.Product_Price;
         setCartItems(newCartItems);
-        setTotalPrice(newTotalPrice);
+        setTotalPrice(newTotalPrice); 
     };
 
     return (
@@ -57,10 +57,11 @@ const PosPage = () => {
                 ))}
             </div>
 
+              {/*  SECTION 2  */}
             <div style={{ textAlign: "center", marginTop: "20px" }}>
-                <h2>Cart</h2>
+                <h1>Cart</h1>
                 {cartItems.map((item, index) => (
-                    <div key={index}>
+                    <div style={{display: "flex", gap:"50px", fontSize: "15PX"}} key={index}>
                         <p>{item.Product_Name}</p>
                         <p>KSH {item.Product_Price}</p>
                     </div>
