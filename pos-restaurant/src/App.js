@@ -5,7 +5,7 @@ import './App.css';
 import Sidebar from './components/sidebar';
 import Combined from './components/combinedcomponents';
 import Loginpage from './components/loginpage';
-
+import AddProduct from './components/addProduct';
 function App() {
   const [username, setUsername] = useState("");
 
@@ -16,6 +16,8 @@ function App() {
           <Routes>
       
               <Route path='/PosPage' element={<Combined/>} />
+
+              <Route path='/addProduct' element={<AddProduct/>}></Route>
             
               <Route path='/' element={<Loginpage />} />
             

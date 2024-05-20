@@ -5,8 +5,9 @@
     
 }
 .sidebar{
-    background-color: rgba(88, 88, 88, 0.256);
+    background-color: rgba(170, 196, 198, 0.753);
     height: 100vh;
+    padding: 30px;
     width: 50vh;
 }
 .addproduct > button {
